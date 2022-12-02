@@ -10,12 +10,7 @@ export async function CreateUser(name: string, lastname: string, age: number) {
   if (user.name != "") {
     if (user.lastname != "") {
       if (user.age != undefined) {
-        const insert = table("user")
-          .insert({
-            a: 123,
-            b: 456,
-          })
-          .build();
+        const insert = table("user").insert(user).build();
         const client = await new Client().connect({
           hostname: "localhost",
         });
